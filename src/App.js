@@ -10,8 +10,8 @@ import Filter from "./components/Filters/filters";
 import Navbar from "./components/Navbar/navbar";
 
 function App() {
-  let [pageNumber,setPageNumber]=useState(1);
-  let [search,setSearch]= useState("")
+  let [pageNumber, setPageNumber] = useState(1);
+  let [search, setSearch] = useState("");
   console.log(pageNumber);
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
   let [fetchedData, updateFetchedData] = useState([]);
@@ -25,10 +25,10 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-center mb-3">Characters</h1>
-      <Search setSearch={setSearch} setPageNumber={setPageNumber}/>
+      <Search setSearch={setSearch} setPageNumber={setPageNumber} />
       <div className="container">
         <div className="row">
-          Filter component will be placed here
+          <Filter />
           <div className="col-lg-8 col-12">
             <div className="row">
               <Card results={results} />
@@ -36,7 +36,11 @@ function App() {
           </div>
         </div>
       </div>
-      <Pagination info={info} pageNumber={pageNumber} setPageNumber={setPageNumber}/>
+      <Pagination
+        info={info}
+        pageNumber={pageNumber}
+        setPageNumber={setPageNumber}
+      />
     </div>
   );
 }
