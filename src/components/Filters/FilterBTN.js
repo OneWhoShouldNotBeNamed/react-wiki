@@ -19,7 +19,6 @@ const FilterBTN = ({ name, index, items,setPageNumber,task }) => {
         onClick={()=>{
           setPageNumber(1);
           task(items);
-
         }}
           className="form-check-input x"
           type="radio"

@@ -13,8 +13,10 @@ function App() {
   let [pageNumber, setPageNumber] = useState(1);
   let [search, setSearch] = useState("");
   let [status, setStatus] = useState("");
+  let [gender, setGender] = useState("");
+
   console.log(pageNumber);
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}`;
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
   useEffect(() => {
@@ -29,7 +31,7 @@ function App() {
       <Search setSearch={setSearch} setPageNumber={setPageNumber} />
       <div className="container">
         <div className="row">
-          <Filter setStatus={setStatus} setPageNumber = {setPageNumber}/>
+          <Filter setGender={setGender} setStatus={setStatus} setPageNumber = {setPageNumber}/>
           <div className="col-lg-8 col-12">
             <div className="row">
               <Card results={results} />
