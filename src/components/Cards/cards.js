@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 
-const Card = ({ results }) => {
+const Card = ({ results, page }) => {
   let display;
 
   if (results) {
@@ -10,7 +10,12 @@ const Card = ({ results }) => {
       let { id, image, name, status, location } = x;
 
       return (
-        <div key={id} className="col-4 position-relative">
+        <Link
+          style={{ textDecoration: "none" }}
+          to={`${page}${id}`}
+          key={id}
+          className="col-lg-4 col-md-6 col-sm-12 mb-4 position-relative text-dark"
+        >
           <div
             className={`${styles.card} d-flex flex-column justify-content-center`}
           >
@@ -50,7 +55,7 @@ const Card = ({ results }) => {
               );
             }
           })()}
-        </div>
+        </Link>
       );
     });
   } else {
